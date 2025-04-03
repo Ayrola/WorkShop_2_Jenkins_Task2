@@ -15,6 +15,21 @@ namespace TestProject3
         [SetUp]
         public void SetUp()
         {
+            ChromeOptions options = new ChromeOptions();
+
+            options.AddArgument("headless");
+            options.AddArgument("no-sandbox");
+            options.AddArgument("diasble-dev-shm-usage");
+            options.AddArgument("disable-gpu");
+
+            string userDataDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+            Directory.CreateDirectory(userDataDir);
+
+            options.AddArgument($"--user-data-dir={userDataDir}");
+
+            // Create object of ChromeDriver
+            driver = new ChromeDriver(userDataDir);
+
             // Create object of ChromeDriver
             driver = new ChromeDriver();
 

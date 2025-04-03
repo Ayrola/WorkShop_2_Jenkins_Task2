@@ -4,7 +4,7 @@ pipeline{
 	stages{
 		stage("Checkout the code"){
 			steps{
-				git branch: main, url: 'https://github.com/Ayrola/WorkShop_2_Jenkins_Task2'
+				git branch: 'main', url: 'https://github.com/Ayrola/WorkShop_2_Jenkins_Task2'
 			}
 		}
 		
